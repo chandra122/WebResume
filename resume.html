@@ -69,8 +69,9 @@
 
       /* Global section backgrounds */
       .vg-page {
-        background: var(--background-light);
-        padding: 20px 0;
+        position: relative;
+        padding: 30px 0;  /* Reduced from 40px */
+        overflow: hidden;
       }
 
       /* About section */
@@ -82,7 +83,33 @@
       /* Experience & Education section */
       .page-service {
         padding: 60px 0;
-        background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+        background: rgba(240, 245, 255, 0.97);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .page-service .section-title {
+        color: #2c3e50;
+        font-size: 3rem;
+        font-weight: 600;
+        margin-bottom: 40px;
+        text-align: center;
+        letter-spacing: normal;
+        text-transform: uppercase;
+      }
+
+      .page-service .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, #3498db, #2980b9);
+        border-radius: 2px;
       }
 
       /* Projects section */
@@ -173,7 +200,7 @@
       .timeline-item {
         position: relative;
         padding-left: 30px;
-        margin-bottom: 40px;
+        margin-bottom: 25px;  /* Reduced from 30px */
       }
 
       .timeline-dot {
@@ -256,19 +283,79 @@
 
       /* Navbar */
       .navbar.navbar-expand-lg.navbar-dark {
-        background: rgba(255, 255, 255, 0.95);
+        background: linear-gradient(to right, #2c3e50, #3498db);
         backdrop-filter: blur(10px);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 30px rgba(52, 152, 219, 0.2);
+        padding: 12px 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-bottom: 1px solid rgba(52, 152, 219, 0.2);
       }
 
       .navbar .nav-link {
-        color: var(--text-primary) !important;
+        color: #ffffff !important;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 8px 16px;
         transition: all 0.3s ease;
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
 
-      .navbar .nav-link:hover,
+      .navbar .nav-link::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #ffffff, #e0e0e0);
+        transition: width 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .navbar .nav-link:hover {
+        color: #e0e0e0 !important;
+        transform: translateY(-1px);
+      }
+
+      .navbar .nav-link:hover::before {
+        width: calc(100% - 32px);
+      }
+
       .navbar .nav-link.active {
-        color: var(--accent-main) !important;
+        color: #ffffff !important;
+        font-weight: 600;
+      }
+
+      .navbar .nav-link.active::before {
+        width: calc(100% - 32px);
+        background: linear-gradient(90deg, #ffffff, #e0e0e0);
+      }
+
+      /* Add a subtle glow effect on hover */
+      .navbar .nav-link:hover::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 32px);
+        height: 10px;
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 70%);
+        opacity: 0;
+        animation: glowEffect 0.3s ease forwards;
+      }
+
+      @keyframes glowEffect {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
 
       /* Project cards */
@@ -278,7 +365,7 @@
         padding: 20px;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         height: auto;
-        min-height: 300px;  /* Reduced from 420px */
+        min-height: 380px; /* Reduced from 420px */
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -394,6 +481,7 @@
       /* Section titles */
       .section-title {
         color: var(--text-primary);
+        margin-bottom: 25px;  /* Reduced from 30px */
       }
 
       /* Download CV button */
@@ -446,7 +534,7 @@
       /* Global section backgrounds and spacing */
       .vg-page {
         position: relative;
-        padding: 80px 0;
+        padding: 30px 0;  /* Reduced from 40px */
         overflow: hidden;
       }
 
@@ -463,8 +551,8 @@
       /* Experience & Education Section Styles */
       .experience-education {
         display: flex;
-        gap: 60px;
-        padding: 0 20px;
+        gap: 30px;  /* Reduced from 40px */
+        padding: 0 10px;  /* Reduced from 15px */
         margin: 0 auto;
         max-width: 1400px;
       }
@@ -473,18 +561,6 @@
       .education-column {
         flex: 1;
         padding: 0;
-        position: relative;
-      }
-
-      .page-service .section-title {
-        font-size: 3rem;
-        color: #696863;
-        font-weight: 800;
-        margin-bottom: 40px;
-        text-align: center;
-        letter-spacing: normal;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        background: none;
         position: relative;
       }
 
@@ -564,12 +640,12 @@
 
       /* Enhanced hover effects */
       .timeline-content:hover .timeline-body h4 {
-        color: #D4A373;
+        color: #3498db;
       }
 
       .timeline-content:hover .timeline-dot {
         transform: scale(1.2);
-        box-shadow: 0 0 0 6px rgba(212, 163, 115, 0.15);
+        box-shadow: 0 0 0 6px rgba(52, 152, 219, 0.15);
       }
 
       /* Navbar styles */
@@ -895,6 +971,7 @@
       .page-blog {
         background: linear-gradient(135deg, #CCD5AE 0%, #E9EDC9 100%);
         position: relative;
+        padding: 40px 0;  /* Reduced from 60px */
       }
 
       .page-blog::before {
@@ -909,6 +986,7 @@
 
       .page-contact {
         background: linear-gradient(135deg, #FAEDCD 0%, #FEFAE0 100%);
+        padding: 30px 0 20px;  /* Reduced from 40px 0 30px */
       }
 
       /* Chart and progress bar styles with gold glow */
@@ -1039,17 +1117,17 @@
 
       /* Timeline progress with glow */
       .timeline-dot {
-        background: #FEFAE0;
-        border: 4px solid #D4A373;
-        box-shadow: 0 0 20px rgba(218, 165, 32, 0.3);
+        background: #ffffff;
+        border: 4px solid #3498db;
+        box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
       }
 
       .timeline::before {
         background: linear-gradient(to bottom,
-          rgba(212, 163, 115, 0.3),
-          rgba(218, 165, 32, 0.3)
+            rgba(52, 152, 219, 0.3),
+            rgba(41, 128, 185, 0.3)
         );
-        box-shadow: 0 0 15px rgba(218, 165, 32, 0.2);
+        box-shadow: 0 0 15px rgba(52, 152, 219, 0.2);
       }
 
       /* Skill percentage circles */
@@ -1269,8 +1347,8 @@
       .counter-section {
         background: url('assets/img/space.jpeg') center/cover no-repeat fixed;
         position: relative;
-        padding: 80px 0;
-        min-height: 250px;
+        padding: 40px 0;  /* Reduced from 50px */
+        min-height: 180px;  /* Reduced from 200px */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1368,7 +1446,7 @@
       }
 
       .projects {
-        padding: 60px 0;
+        padding: 30px 0;  /* Reduced from 40px */
       }
 
       .project-card {
@@ -1384,14 +1462,14 @@
       }
 
       .skills {
-        padding: 60px 0;
+        padding: 30px 0;  /* Reduced from 40px */
       }
 
       .skill-card {
         background: transparent;
         border: none;
         box-shadow: none;
-        padding: 20px;
+        padding: 15px; /* Reduced from 20px */
         transition: transform 0.3s ease;
       }
 
@@ -1400,7 +1478,7 @@
       }
 
       .blog {
-        padding: 60px 0;
+        padding: 30px 0;  /* Reduced from 40px */
       }
 
       .blog-card {
@@ -1417,7 +1495,7 @@
 
       .section-title {
         text-align: center;
-        margin-bottom: 50px;
+        margin-bottom: 30px; /* Reduced from 40px/50px */
       }
 
       .section-title h2 {
@@ -1464,43 +1542,154 @@
 
       .skills-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;  /* Reduced gap between cards */
-        padding: 20px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        padding: 10px;
+      }
+
+      .skill-card {
+        background: rgba(240, 248, 255, 0.95);
+        border-radius: 12px;
+        padding: 15px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        height: auto;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 10px;
       }
 
       .skill-icon-wrapper {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
         background: rgba(218, 165, 32, 0.15);
-        border-radius: 12px;
-        margin-bottom: 15px;
-        transition: all 0.3s ease;
-        box-shadow: 
-          0 4px 15px rgba(0, 0, 0, 0.05),
-          0 0 20px rgba(218, 165, 32, 0.1);
+        border-radius: 10px;
+        margin-bottom: 10px;
       }
 
       .skill-icon {
-        font-size: 24px;
-        color: #D4A373;
+        font-size: 20px;
+      }
+
+      .skill-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .skill-description {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      @media (max-width: 1200px) {
+        .skills-container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .skills-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .skills-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .skill-icon-wrapper {
+        width: 60px; /* Increased from 40px */
+        height: 60px; /* Increased from 40px */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(239, 54, 35, 0.1);
+        border-radius: 15px;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(239, 54, 35, 0.2);
+      }
+
+      .skill-icon {
+        font-size: 28px; /* Increased from 20px */
+        color: #ef3623;
         transition: all 0.3s ease;
       }
 
       .skill-card:hover .skill-icon-wrapper {
-        transform: translateY(-3px);
-        background: rgba(218, 165, 32, 0.25);
-        box-shadow: 
-          0 6px 20px rgba(0, 0, 0, 0.1),
-          0 0 30px rgba(218, 165, 32, 0.2);
+        transform: scale(1.1);
+        background: rgba(239, 54, 35, 0.15);
+        box-shadow: 0 0 20px rgba(239, 54, 35, 0.2);
+        border-color: rgba(239, 54, 35, 0.3);
       }
 
       .skill-card:hover .skill-icon {
-        color: #B6935C;
         transform: scale(1.1);
+        color: #ef3623;
+      }
+
+      @keyframes iconFloat {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .skill-icon-wrapper:hover {
+        animation: iconFloat 2s ease-in-out infinite;
+      }
+
+      .project-icon {
+        width: 60px; /* Increased from 40px */
+        height: 60px; /* Increased from 40px */
+        background: rgba(212, 163, 115, 0.15);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .project-icon i {
+        font-size: 28px; /* Increased from default */
+        color: #D4A373;
+      }
+
+      .project-card:hover .project-icon {
+        transform: scale(1.1);
+        background: rgba(212, 163, 115, 0.25);
+        box-shadow: 0 0 20px rgba(212, 163, 115, 0.3);
+      }
+
+      /* Add animation for icons */
+      @keyframes iconFloat {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .skill-icon-wrapper:hover,
+      .project-icon:hover {
+        animation: iconFloat 2s ease-in-out infinite;
       }
     </style>
 
@@ -1576,7 +1765,7 @@
       <div class="caption-header text-center wow zoomInDown" style="width: 100%; padding: 20px;">
         <h5 class="fw-normal" style="font-size: 3.5rem; margin-bottom: 20px; color: #ffffff; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); text-align: center;">Welcome</h5>
         <h1 class="fw-light mb-4" style="font-size: 2.8rem; color: #ffffff; text-align: center; margin-bottom: 25px;">I'm <b class="fg-theme" style="color: #ef3623;">Chandra Sekhar</b> Bollineni</h1>
-        <div class="badge" style="font-size: 1.8rem; padding: 12px 30px; background-color: rgba(239, 54, 35, 0.9); color: #ffffff; border-radius: 30px; display: inline-block; text-transform: none; letter-spacing: 0.5px;">AI/ML Full Stack Engineer</div>
+        <a href="#about" class="badge" style="font-size: 1.8rem; padding: 12px 30px; background-color: rgba(239, 54, 35, 0.9); color: #ffffff; border-radius: 30px; display: inline-block; text-transform: none; letter-spacing: 0.5px; text-decoration: none; transition: all 0.3s ease; cursor: pointer;">AI/ML Full Stack Engineer</a>
       </div>
     </div>
 
@@ -1988,11 +2177,11 @@
           </div>
           <div style="text-align: center; flex: 1;">
             <h2 class="number" data-target="120" style="color: #ffffff; font-size: 4.5rem; font-weight: 700; margin-bottom: 5px; text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);">120</h2>
-            <span style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; display: inline-block;">IT EXPERIENCE</span>
+            <span style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; display: inline-block;">MONTHS IT<br>EXPERIENCE</span>
           </div>
           <div style="text-align: center; flex: 1;">
             <h2 class="number" data-target="72" style="color: #ffffff; font-size: 4.5rem; font-weight: 700; margin-bottom: 5px; text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);">72</h2>
-            <span style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; display: inline-block;">RESEARCH EXPERIENCE</span>
+            <span style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; display: inline-block;">MONTHS RESEARCH<br>EXPERIENCE</span>
           </div>
           <div style="text-align: center; flex: 1;">
             <h2 class="number" data-target="6" style="color: #ffffff; font-size: 4.5rem; font-weight: 700; margin-bottom: 5px; text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);">6</h2>
