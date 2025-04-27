@@ -22,7 +22,16 @@
   .projects-container {
     grid-template-columns: 1fr !important;
     gap: 20px;
-    padding: 0 10px;
+    padding: 0 8px !important;
+    max-width: 100vw !important;
+    box-sizing: border-box;
+  }
+  .project-card {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+    margin: 0 auto 18px auto !important;
+    padding: 12px !important;
   }
 }
 
@@ -35,14 +44,33 @@
     grid-template-columns: 1fr !important;
     gap: 15px;
   }
-  .project-card, .skill-card, .blog-card {
-    min-height: unset;
-    padding: 12px;
-    margin-bottom: 15px;
+  .projects-container {
+    grid-template-columns: 1fr !important;
+    gap: 15px;
+    padding: 0 4px !important;
+    max-width: 100vw !important;
+    box-sizing: border-box;
+  }
+  .project-card {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+    margin: 0 auto 15px auto !important;
+    padding: 10px !important;
+  }
+  .navbar .navbar-nav {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    background: linear-gradient(to right, #2c3e50, #3498db);
+  }
+  .navbar .nav-item {
+    flex: 0 0 auto !important;
   }
   .navbar .nav-link {
-    font-size: 14px;
-    padding: 8px 8px;
+    white-space: nowrap !important;
+    font-size: 15px;
+    padding: 8px 10px;
   }
   .section-title {
     font-size: 2rem;
@@ -71,6 +99,14 @@
   .section-title {
     font-size: 1.5rem;
   }
+  .projects-container {
+    padding: 0 2px !important;
+  }
+  .project-card {
+    padding: 8px !important;
+    margin-bottom: 12px !important;
+  }
+  /* Navbar: reduce font and padding further */
   .navbar .nav-link {
     font-size: 13px;
     padding: 8px 4px;
@@ -82,12 +118,6 @@
   img, .blog-image img, .about-img {
     max-width: 100%;
     height: auto !important;
-  }
-  /* Project section: add margin to cards */
-  .project-card {
-    margin-bottom: 18px !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
   }
 }
 
