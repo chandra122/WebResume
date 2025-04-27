@@ -129,4 +129,55 @@
   .navbar-toggler {
     display: block !important;
   }
+}
+
+/* --- Landscape phone and small tablet fixes --- */
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .container, .blog-grid, .skills-container, .projects-container {
+    padding-left: 12vw !important;
+    padding-right: 12vw !important;
+    box-sizing: border-box;
+  }
+  .projects-container {
+    max-width: 100vw !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+  .project-card {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto 14px auto !important;
+    padding: 12px !important;
+  }
+  .navbar .navbar-nav {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    background: linear-gradient(to right, #2c3e50, #3498db);
+  }
+  .navbar .nav-item {
+    flex: 0 0 auto !important;
+  }
+  .navbar .nav-link {
+    white-space: nowrap !important;
+    font-size: 15px;
+    padding: 8px 10px;
+  }
+  .navbar-collapse {
+    display: none !important;
+  }
+  .navbar-toggler {
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Always show hamburger, hide collapse */
+  .navbar-collapse {
+    display: none !important;
+  }
+  .navbar-toggler {
+    display: block !important;
+  }
 } 
